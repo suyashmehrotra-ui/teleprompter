@@ -19,3 +19,7 @@ Notes:
 - Speed is px/sec. Increase speed to scroll faster.
 - Use Mirror mode if you need to reflect text for a teleprompter glass.
 - Use Fullscreen for distraction-free display.
+
+Mobile behavior:
+- On small screens (<=900px) the input area and control buttons are hidden automatically when you start the teleprompter.
+- Pause or Reset will restore the input UI so you can make edits.

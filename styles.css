@@ -20,3 +20,21 @@ input[type="range"]{width:200px}
 .hidden{display:none}
 button,input,textarea{font-family:inherit}
 @media (max-width:900px){main{grid-template-columns:1fr;}}
+
+/* Mobile auto-hide UI when running */
+.hide-ui header,
+.hide-ui .controls {
+  display: none !important;
+}
+.hide-ui main {
+  grid-template-columns: 1fr !important;
+}
+.hide-ui .telewrap {
+  height: 100vh !important;
+  padding: 0;
+}
+
+/* Slightly wider tele text on small screens when controls hidden */
+@media (max-width:900px){
+  .teleText{width:92%}
+}

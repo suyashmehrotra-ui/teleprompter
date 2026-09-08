@@ -52,6 +52,8 @@ function animate(now){
   const endOffset = teleText.clientHeight - tele.clientHeight;
   if(endOffset <= 0 || offset >= Math.max(0, endOffset + 20)){
     running = false;
+    // when finished, restore UI (useful on mobile)
+    document.body.classList.remove('hide-ui');
     return;
   }
   requestAnimationFrame(animate);
@@ -59,12 +61,16 @@ function animate(now){
 
 startBtn.onclick = () => {
   loadEditorToTele();
+  // On small screens, hide the input window and buttons when starting
+  if(window.matchMedia('(max-width:900px)').matches){
+    document.body.classList.add('hide-ui');
+  }
   running = true;
   lastTime = 0;
   requestAnimationFrame(animate);
 };
-pauseBtn.onclick = () => { running = false; lastTime = 0; };
-resetBtn.onclick = () => { running = false; offset = 0; teleText.style.transform = `translateX(-50%) translateY(0px)`; lastTime = 0; };
+pauseBtn.onclick = () => { running = false; lastTime = 0; document.body.classList.remove('hide-ui'); };
+resetBtn.onclick = () => { running = false; offset = 0; teleText.style.transform = `translateX(-50%) translateY(0px)`; lastTime = 0; document.body.classList.remove('hide-ui'); };
 fullscreenBtn.onclick = async () => {
   if(document.fullscreenElement) await document.exitFullscreen();
   else await tele.requestFullscreen().catch(()=>{});
