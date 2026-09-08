@@ -1,0 +1,22 @@
+:root{
+  --bg:#0b0b0b; --fg:#eaeaea; --accent:#1e90ff;
+}
+*{box-sizing:border-box}
+body{
+  margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--fg);min-height:100vh;
+}
+header{padding:12px 16px;border-bottom:1px solid rgba(255,255,255,0.03)}
+h1{margin:0;font-size:18px}
+main{display:grid;grid-template-columns:420px 1fr;gap:12px;padding:12px}
+.controls{padding:12px;background:#0f1113;border-radius:8px;border:1px solid rgba(255,255,255,0.03)}
+.controls .row{margin-bottom:10px;display:flex;gap:8px;align-items:center;flex-wrap:wrap}
+textarea#editor{width:100%;height:180px;padding:8px;border-radius:6px;background:#071018;color:var(--fg);border:1px solid rgba(255,255,255,0.03);resize:vertical}
+.sliders label{display:flex;flex-direction:column;font-size:13px}
+input[type="range"]{width:200px}
+.telewrap{height:75vh;display:flex;align-items:center;justify-content:center}
+.tele{width:100%;height:100%;max-width:1200px;background:linear-gradient(180deg,#0b0b0b 0%, #0b0b0b 50%, rgba(255,255,255,0.02) 100%);overflow:hidden;border-radius:8px;border:1px solid rgba(255,255,255,0.02);position:relative}
+.teleText{position:absolute;left:50%;transform:translateX(-50%) translateY(0);width:80%;text-align:center;white-space:normal}
+.overlay{position:fixed;inset:0;display:flex;align-items:center;justify-content:center;font-size:120px;color:var(--accent);background:rgba(0,0,0,0.7);z-index:40}
+.hidden{display:none}
+button,input,textarea{font-family:inherit}
+@media (max-width:900px){main{grid-template-columns:1fr;}}
